@@ -1,6 +1,6 @@
 package com.tc.dlxt.entity;
 
-public class user {
+public class User {
     private String id;
     private String name;
     private String password;
@@ -27,5 +27,14 @@ public class user {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
