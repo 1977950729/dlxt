@@ -1,0 +1,32 @@
+spring:
+  application.name: dlxt
+  profiles:
+    active: dev
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  http:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+
+server:
+  port: 8083
+  servlet:
+    context-path: /dlxt
+  tomcat:
+    uri-encoding: UTF-8
+mybatis:
+  configLocation: classpath:mybatis/mybatis-config.xml
+  systemMapperLocations: classpath*:mapper/*.xml
+
+system:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dlxt
+    username: root
+    password: 123123
+    driver-class-name: com.mysql.jdbc.Driver
+
+
