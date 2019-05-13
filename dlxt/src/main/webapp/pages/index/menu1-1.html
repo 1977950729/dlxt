@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>机组参数实时数据-锅炉主要参数实时数据</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css"/>
+</head>
+
+<body>
+<div class="page-content-wrap" id="app">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <select name="states" lay-filter="status">
+                    <option value="">请选择一台机器</option>
+                    <option value="0">总览</option>
+                    <option value="1" selected>1号炉实时值</option>
+                    <option value="2">2号炉实时值</option>
+                    <option value="3">3号炉实时值</option>
+                    <option value="4">4号炉实时值</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="layui-form" id="table-list">
+        <table class="layui-table" lay-skin="line">
+            <colgroup>
+                <col width="100">
+                <col width="250">
+                <col width="150">
+                <col width="150">
+                <col width="100">
+                <col width="200">
+                <col width="100">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>趋势</th>
+                <th class="hidden-xs">参数名称</th>
+                <th class="hidden-xs">实时值</th>
+                <th class="hidden-xs">标准值</th>
+                <th>单位</th>
+                <th>时间</th>
+                <th>状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id='node-1' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">主汽温度</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-2' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">主汽压力</td>
+                <td class="hidden-xs">14.53</td>
+                <td class="hidden-xs">16.70</td>
+                <td>MPa</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-3' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">冷再热蒸汽温度</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-4' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">冷再热蒸汽压力A</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>MPa</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-5' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">冷再热蒸汽压力B</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>MPa</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-6' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">再热蒸汽温度A</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-7' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">再热蒸汽温度B</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-8' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">再热蒸汽压力</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-9' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">锅炉给水温度</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-10' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">锅炉给水压力</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-11' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">主汽流量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-12' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">锅炉给水流量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-13' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">排烟温度</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-14' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">烟气氧量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-15' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">一级过热减温水流量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-16' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">二级过热减温水流量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-17' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">再热减温水流量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+            <tr id='node-18' class="parent collapsed">
+                <td></td>
+                <td class="hidden-xs">燃油流量</td>
+                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">540.00</td>
+                <td>℃</td>
+                <td>2019-5-12 11:12:02</td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/vue/vuejs-2.5.16.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/index/menu1-1.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
