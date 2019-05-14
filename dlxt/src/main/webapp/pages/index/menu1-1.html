@@ -10,10 +10,15 @@
     <title>机组参数实时数据-锅炉主要参数实时数据</title>
     <link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css"/>
+    <style>
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
-<div class="page-content-wrap" id="app">
+<div class="page-content-wrap">
     <form class="layui-form" action="">
         <div class="layui-form-item">
             <div class="layui-inline">
@@ -29,7 +34,7 @@
         </div>
     </form>
     <div class="layui-form" id="table-list">
-        <table class="layui-table" lay-skin="line">
+        <table class="layui-table" lay-skin="line" id="app" v-cloak>
             <colgroup>
                 <col width="100">
                 <col width="250">
@@ -54,172 +59,172 @@
             <tr id='node-1' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">主汽温度</td>
-                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">{{list.masterGasTemperature}}</td>
                 <td class="hidden-xs">540.00</td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-2' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">主汽压力</td>
-                <td class="hidden-xs">14.53</td>
+                <td class="hidden-xs">{{list.masterGasStress}}</td>
                 <td class="hidden-xs">16.70</td>
                 <td>MPa</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-3' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">冷再热蒸汽温度</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
+                <td class="hidden-xs">{{list.coldHotTemperature}}</td>
+                <td class="hidden-xs"></td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-4' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">冷再热蒸汽压力A</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
+                <td class="hidden-xs">{{list.coldHotStressA}}</td>
+                <td class="hidden-xs"></td>
                 <td>MPa</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-5' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">冷再热蒸汽压力B</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
+                <td class="hidden-xs">{{list.coldHotStressB}}</td>
+                <td class="hidden-xs"></td>
                 <td>MPa</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-6' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">再热蒸汽温度A</td>
-                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">{{list.hotHotTemperatureA}}</td>
                 <td class="hidden-xs">540.00</td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-7' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">再热蒸汽温度B</td>
-                <td class="hidden-xs">540.57</td>
+                <td class="hidden-xs">{{list.hotHotTemperatureB}}</td>
                 <td class="hidden-xs">540.00</td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-8' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">再热蒸汽压力</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.hotHotStress}}</td>
+                <td class="hidden-xs">3.56</td>
+                <td>MPa</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-9' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">锅炉给水温度</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
+                <td class="hidden-xs">{{list.furnaceWaterTemperature}}</td>
+                <td class="hidden-xs">290.00</td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-10' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">锅炉给水压力</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.furnaceWaterStress}}</td>
+                <td class="hidden-xs"></td>
+                <td>MPa</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-11' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">主汽流量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.masterGasFlow}}</td>
+                <td class="hidden-xs"></td>
+                <td>t/h</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-12' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">锅炉给水流量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.furnaceWaterFlow}}</td>
+                <td class="hidden-xs"></td>
+                <td>t/h</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-13' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">排烟温度</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
+                <td class="hidden-xs">{{list.smogOutTemperature}}</td>
+                <td class="hidden-xs">132.00</td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-14' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">烟气氧量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.smogOxygen}}</td>
+                <td class="hidden-xs">3.60</td>
+                <td>%</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-15' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">一级过热减温水流量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.firstHotFlow}}</td>
+                <td class="hidden-xs"></td>
+                <td>t/h</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-16' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">二级过热减温水流量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.secondHotFlow}}</td>
+                <td class="hidden-xs"></td>
+                <td>t/h</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-17' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">再热减温水流量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
-                <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td class="hidden-xs">{{list.hotHotFlow}}</td>
+                <td class="hidden-xs"></td>
+                <td>t/h</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
             <tr id='node-18' class="parent collapsed">
                 <td></td>
                 <td class="hidden-xs">燃油流量</td>
-                <td class="hidden-xs">540.57</td>
-                <td class="hidden-xs">540.00</td>
+                <td class="hidden-xs">{{list.coalLoss}}</td>
+                <td class="hidden-xs"></td>
                 <td>℃</td>
-                <td>2019-5-12 11:12:02</td>
+                <td>{{list.lastUpdateTime}}</td>
                 <td></td>
             </tr>
-
             </tbody>
         </table>
     </div>
 </div>
 <script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/admin/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../static/js/vue/vuejs-2.5.16.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../static/js/index/menu1-1.js" type="text/javascript" charset="utf-8"></script>
 </body>
