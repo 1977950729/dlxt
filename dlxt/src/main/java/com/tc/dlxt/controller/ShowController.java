@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RequestMapping("home")
+@RequestMapping("view")
 @Controller
 public class ShowController {
 
@@ -22,6 +22,12 @@ public class ShowController {
         List<User> all = userService.findAll();
         System.out.println(all);
         mv.setViewName("hello");
+        return mv;
+    }
+    @RequestMapping("toHome")
+    public ModelAndView toHome(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("homePage/home");
         return mv;
     }
 }
