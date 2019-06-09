@@ -30,4 +30,5 @@ public interface UserService {
 	List<User> findAll();
 
 
+	User login(String username, String password);
 }

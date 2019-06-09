@@ -9,8 +9,8 @@ new Vue({
                 type: "get",
                 dataType: "json",
                 success: function (result) {
+                    console.log(result);
                     setData(result);
-                    console.log(result.times);
                 }
             });
         }
@@ -20,38 +20,55 @@ new Vue({
     }
 });
 
-function setData(data) {
+function setData(result) {
     option = {
         title: {
-            text: '发电煤耗实时数据图'
+            text: '发电煤耗实时数据图',
+            x: 'center'
         },
         tooltip: {
             trigger: 'axis',
             axisPointer: {
-                animation: true
+                animation: false
             }
         },
-        xAxis: {
-            type: 'time',
-            splitNumber: 5,
-            splitLine: {
-                show: false
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                restore: {},
+                saveAsImage: {}
             }
         },
-        yAxis: {
-            type: 'value',
-            boundaryGap: [0, '100%'],
-            splitLine: {
-                show: false
-            }
+        axisPointer: {
+            link: {xAxisIndex: 'all'}
         },
-        series: [{
-            name: '发电煤耗',
-            type: 'line',
-            showSymbol: false,
-            hoverAnimation: false,
-            data: data.data
-        }]
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                axisLine: {onZero: true},
+                data: result.timeLList
+            }
+        ],
+        yAxis: [
+            {
+                name: '发电煤耗',
+                type: 'value',
+                max: 300,
+                min: 260
+            }
+        ],
+        series: [
+            {
+                name: '发电煤耗',
+                type: 'line',
+                symbolSize: 8,
+                hoverAnimation: false,
+                data: result.dataList
+            }
+        ]
     };
 
     //初始化echarts实例

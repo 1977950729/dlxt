@@ -25,9 +25,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/")
                 .excludePathPatterns("/static/**")
-                .excludePathPatterns("/Login/login")
-                .excludePathPatterns("/Login/nopwLogin")
-                .excludePathPatterns("/Login/nopwLogout");
+                .excludePathPatterns("/pages/login/**")
+                .excludePathPatterns("/login/**");
     }
 
     @Override

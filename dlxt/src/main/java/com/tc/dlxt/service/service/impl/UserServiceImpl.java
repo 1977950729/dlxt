@@ -81,4 +81,13 @@ public class UserServiceImpl implements UserService {
 			throw new RuntimeException(ex);
 		}
 	}
+
+	@Override
+	public User login(String username, String password) {
+		try {
+			return userMapper.login(username,password);
+		}catch (Exception ex){
+			throw new RuntimeException(ex);
+		}
+	}
 }

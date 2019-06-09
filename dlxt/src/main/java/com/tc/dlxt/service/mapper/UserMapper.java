@@ -1,6 +1,7 @@
 package com.tc.dlxt.service.mapper;
 
 import com.tc.dlxt.entity.User;
+import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
@@ -12,4 +13,5 @@ import tk.mybatis.mapper.common.Mapper;
 public interface UserMapper extends Mapper<User> {
 
 
+    User login(@Param("username") String username, @Param("password") String password);
 }

@@ -35,22 +35,20 @@ public class FurnaceController {
     }
 
     @RequestMapping("selectCoal")
-    public String selectCoal() {
+    public Map<String, Object> selectCoal() {
         List<Map<String, Object>> list = furnaceCurrentDataService.selectCoal();
-        List<Date> times = new ArrayList<>();
-        List<Object> data = new ArrayList<>();
+        List<Object> dataList = new ArrayList<>();
+        List<String> timeLList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             Object testData = (Object) list.get(i).get("testData");
-            data.add(testData);
-            if (i % 180 == 0 || i == list.size() - 1) {
-                Date time = (Date) list.get(i).get("perspecTime");
-                times.add(time);
-            }
+            String time = (String) list.get(i).get("perspecTime");
+            dataList.add(testData);
+            timeLList.add(time);
         }
         Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("times", times);
-        resultMap.put("data", data);
-        return JSON.toJSONStringWithDateFormat(resultMap, "HH:mm:ss");
+        resultMap.put("dataList",dataList);
+        resultMap.put("timeLList",timeLList);
+        return resultMap;
     }
 
 

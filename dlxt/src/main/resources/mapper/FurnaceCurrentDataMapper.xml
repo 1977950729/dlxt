@@ -23,6 +23,6 @@
 		SELECT * from testvalue WHERE dateNum=18
     </select>
     <select id="selectCoal" resultType="map">
-		SELECT * from testvalue WHERE dateNum=24 order by perspecTime
+		SELECT t.dateNum,DATE_FORMAT(t.perspecTime,'%H:%i') as perspecTime,t.testData from testvalue t WHERE t.dateNum=24 order by t.id asc;
     </select>
 </mapper>
