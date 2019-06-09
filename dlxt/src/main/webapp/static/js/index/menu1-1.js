@@ -1,13 +1,13 @@
 new Vue({
     el: "#app",
     data: {
-        list: {}
+        list: []
     },
     methods: {
-        selectLatest: function () {
+        selectFurnaceData: function () {
             var that = this;
             $.ajax({
-                url: "/dlxt/furnace/selectLatest",
+                url: "/dlxt/furnace/selectFurnaceData",
                 type: "get",
                 dataType: "json",
                 success: function (result) {
@@ -17,6 +17,6 @@ new Vue({
         }
     },
     created: function () {
-        this.selectLatest();
+        this.selectFurnaceData();
     }
 })

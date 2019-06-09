@@ -4,6 +4,7 @@ import com.tc.dlxt.entity.FurnaceCurrentData;
 
 import java.io.Serializable;
 import java.util.List;
+
 /**
  * FurnaceCurrentDataService 服务接口
  * @date 2019-05-13 22:55:32
@@ -31,4 +32,7 @@ public interface FurnaceCurrentDataService {
 
 	/** 查询最新一条 */
 	FurnaceCurrentData selectLatest();
+
+	/** 查询锅炉参数信息*/
+	List selectFurnaceData();
 }

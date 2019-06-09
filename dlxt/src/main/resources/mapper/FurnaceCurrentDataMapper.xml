@@ -7,4 +7,14 @@
     <select id="selectLatest" resultType="com.tc.dlxt.entity.FurnaceCurrentData">
 		select * from furnace_current_data order by last_update_time desc limit 0,1
     </select>
+
+    <select id="selectFurnaceData" resultType="map">
+		SELECT * from (
+        SELECT v.dateNum,v.dateName,v.unit,p.perspecTime,p.testData,g.testData as goalData
+        from  vfurnace v
+        left join testvalue p  on v.dateNum=p.dateNum
+        left join goalvalue g on v.dateNum=g.relateNum
+        where v.dateNum in ('51','37','53','17','52','25','18','50','10003','10004','10001','10002','10005','10006','10007','10008')
+        ORDER BY perspecTime desc ) t GROUP BY t.dateNum
+    </select>
 </mapper>
