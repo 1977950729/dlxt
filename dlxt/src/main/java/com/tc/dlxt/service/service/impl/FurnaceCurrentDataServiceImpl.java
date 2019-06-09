@@ -178,4 +178,16 @@ public class FurnaceCurrentDataServiceImpl implements FurnaceCurrentDataService 
         }
     }
 
+    /**
+     * 查询烟气含氧量
+     */
+    @Override
+    public List<Map<String, Object>> selectGasOxygen() {
+        try {
+            return furnaceCurrentDataMapper.selectGasOxygen();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
 }

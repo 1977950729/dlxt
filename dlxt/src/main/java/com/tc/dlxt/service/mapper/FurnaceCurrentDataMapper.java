@@ -4,6 +4,7 @@ import com.tc.dlxt.entity.FurnaceCurrentData;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * FurnaceCurrentDataMapper 数据访问接口
@@ -15,4 +16,6 @@ public interface FurnaceCurrentDataMapper extends Mapper<FurnaceCurrentData> {
     FurnaceCurrentData selectLatest();
 
     List selectFurnaceData();
+
+    List<Map<String, Object>> selectGasOxygen();
 }

@@ -4,6 +4,7 @@ import com.tc.dlxt.entity.FurnaceCurrentData;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * FurnaceCurrentDataService 服务接口
@@ -35,4 +36,7 @@ public interface FurnaceCurrentDataService {
 
 	/** 查询锅炉参数信息*/
 	List selectFurnaceData();
+
+	/** 查询烟气含氧量*/
+    List<Map<String, Object>> selectGasOxygen();
 }

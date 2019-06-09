@@ -28,5 +28,11 @@ public class FurnaceController {
         List<Map<String,Object>> result = furnaceCurrentDataService.selectFurnaceData();
         return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd  HH:mm:ss");
     }
+    @RequestMapping("selectGasOxygen")
+    public String selectGasOxygen(){
+        List<Map<String,Object>> result = furnaceCurrentDataService.selectGasOxygen();
+        return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd  HH:mm:ss");
+    }
+
 
 }
