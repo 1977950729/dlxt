@@ -14,4 +14,7 @@ public interface UserMapper extends Mapper<User> {
 
 
     User login(@Param("username") String username, @Param("password") String password);
+
+    User checkUsername(String username);
+
 }

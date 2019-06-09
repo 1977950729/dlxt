@@ -37,6 +37,22 @@ public class LoginController {
         return resultMap;
     }
 
+    @RequestMapping("/logon")
+    @ResponseBody
+    public Map<String, Object> logon(String username, String password, String phone) {
+        Map<String, Object> resultMap = new HashMap<>();
+        boolean exist = userService.checkUsername(username);
+        resultMap.put("success", exist);
+        if (exist) {
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setPhone(phone);
+            userService.save(user);
+        }
+        return resultMap;
+    }
+
     @RequestMapping("/getUsername")
     @ResponseBody
     public String getUsername(HttpServletRequest request) {
@@ -44,6 +60,7 @@ public class LoginController {
         User user = (User) session.getAttribute("user");
         return user.getUsername();
     }
+
     @RequestMapping("/logOut")
     @ResponseBody
     public String logOut(HttpServletRequest request) {
