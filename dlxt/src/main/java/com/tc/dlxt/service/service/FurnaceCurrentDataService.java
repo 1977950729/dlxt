@@ -39,4 +39,6 @@ public interface FurnaceCurrentDataService {
 
 	/** 查询烟气含氧量*/
     List<Map<String, Object>> selectGasOxygen();
+
+    List<Map<String,Object>> selectCoal();
 }

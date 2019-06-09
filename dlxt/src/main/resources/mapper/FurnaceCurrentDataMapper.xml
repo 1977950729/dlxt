@@ -22,4 +22,7 @@
     <select id="selectGasOxygen" resultType="map">
 		SELECT * from testvalue WHERE dateNum=18
     </select>
+    <select id="selectCoal" resultType="map">
+		SELECT * from testvalue WHERE dateNum=24 order by perspecTime
+    </select>
 </mapper>

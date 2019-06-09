@@ -189,5 +189,13 @@ public class FurnaceCurrentDataServiceImpl implements FurnaceCurrentDataService 
             throw new RuntimeException(ex);
         }
     }
+    @Override
+    public List<Map<String,Object>> selectCoal(){
+        try {
+            return furnaceCurrentDataMapper.selectCoal();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
 }
