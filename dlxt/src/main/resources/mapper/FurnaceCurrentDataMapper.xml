@@ -9,7 +9,8 @@
     </select>
 
     <select id="selectFurnaceData" resultType="map">
-		SELECT * from (
+		SELECT t.dateNum,t.dateName,t.unit,t.perspecTime,t.testData,t.goalData
+        from (
         SELECT v.dateNum,v.dateName,v.unit,p.perspecTime,p.testData,g.testData as goalData
         from  vfurnace v
         left join testvalue p  on v.dateNum=p.dateNum
