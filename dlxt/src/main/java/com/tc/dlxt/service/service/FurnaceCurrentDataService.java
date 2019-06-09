@@ -38,7 +38,13 @@ public interface FurnaceCurrentDataService {
 	List selectFurnaceData();
 
 	/** 查询烟气含氧量*/
-    List<Map<String, Object>> selectGasOxygen();
+    Map<String, Object> selectGasOxygen();
 
     List<Map<String,Object>> selectCoal();
+
+    /** 查询发电煤耗影响数据*/
+    Map<String, Object> selectElectricCoalLoss();
+
+    /** 查询饼图数据*/
+    Map<String, Object> selectElectricCoalLossCircle();
 }

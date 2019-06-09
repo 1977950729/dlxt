@@ -29,9 +29,9 @@ public class FurnaceController {
     }
 
     @RequestMapping("selectGasOxygen")
-    public String selectGasOxygen() {
-        List<Map<String, Object>> result = furnaceCurrentDataService.selectGasOxygen();
-        return JSON.toJSONStringWithDateFormat(result, "yyyy-MM-dd  HH:mm:ss");
+    public String selectGasOxygen(){
+        Map<String,Object> result = furnaceCurrentDataService.selectGasOxygen();
+        return JSON.toJSONStringWithDateFormat(result,"HH:mm:ss");
     }
 
     @RequestMapping("selectCoal")
@@ -50,6 +50,19 @@ public class FurnaceController {
         resultMap.put("timeLList",timeLList);
         return resultMap;
     }
+
+    @RequestMapping("selectElectricCoalLoss")
+    public String selectElectricCoalLoss(){
+        Map<String,Object> result = furnaceCurrentDataService.selectElectricCoalLoss();
+        return JSON.toJSONStringWithDateFormat(result,"HH:mm:ss");
+    }
+
+    @RequestMapping("selectElectricCoalLossCircle")
+    public String selectElectricCoalLossCircle() {
+        Map<String, Object> result = furnaceCurrentDataService.selectElectricCoalLossCircle();
+        return JSON.toJSONStringWithDateFormat(result, "yyyy-MM-dd  HH:mm:ss");
+    }
+
 
 
 }

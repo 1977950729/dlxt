@@ -20,4 +20,8 @@ public interface FurnaceCurrentDataMapper extends Mapper<FurnaceCurrentData> {
     List<Map<String, Object>> selectGasOxygen();
 
     List<Map<String,Object>> selectCoal();
+
+    List<Map<String,Object>> selectElectricCoalLoss();
+
+    List<Map<String, Object>> selectElectricCoalLossCircle();
 }

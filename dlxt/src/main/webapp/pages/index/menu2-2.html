@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>机组经济性能分析-耗差实时分析结果棒图</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css"/>
+    <script src="../../static/js/echarts/echarts.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-content-wrap" id="app">
+
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <select name="states" lay-filter="status">
+                    <option value="">请选择一台机器</option>
+                    <option value="0">总览</option>
+                    <option value="1" selected>1号炉实时值</option>
+                    <option value="2">2号炉实时值</option>
+                    <option value="3">3号炉实时值</option>
+                    <option value="4">4号炉实时值</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="layui-form" >
+        <div id="chartmain" style="width:1100px; height: 500px;"></div>
+    </div>
+    <div class="layui-form" id="table-list">
+        <table class="layui-table" lay-skin="line"  v-cloak>
+            <colgroup>
+                <col width="100">
+                <col width="250">
+                <col width="150">
+                <col width="150">
+                <col width="100">
+                <col width="200">
+                <col width="100">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="hidden-xs">影响发电煤耗因素</th>
+                <th >当前值</th>
+                <th >目标值</th>
+                <th class="hidden-xs">发电煤耗损失(g/kw·h)</th>
+
+            </tr>
+            </thead>
+            <tbody v-for="item in list">
+            <tr id='node-1' class="parent collapsed" >
+                <td class="hidden-xs">{{item.dateName}}</td>
+                <td class="hidden-xs">{{item.testData}}</td>
+                <td class="hidden-xs">{{item.goalvalue}}</td>
+                <td>{{item.coalloss}}</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/admin/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/vue/vuejs-2.5.16.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../static/js/index/menu2-2.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

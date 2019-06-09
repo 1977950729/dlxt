@@ -182,9 +182,19 @@ public class FurnaceCurrentDataServiceImpl implements FurnaceCurrentDataService 
      * 查询烟气含氧量
      */
     @Override
-    public List<Map<String, Object>> selectGasOxygen() {
+    public Map<String, Object> selectGasOxygen() {
+        Map<String, Object> map=new HashMap<String, Object>();
         try {
-            return furnaceCurrentDataMapper.selectGasOxygen();
+            List<Map<String, Object>> list = furnaceCurrentDataMapper.selectGasOxygen();
+            List<Object> listTime=new ArrayList<>();
+            List<Object> listData=new ArrayList<>();
+            for(Map tempmap:list){
+                listTime.add(tempmap.get("perspecTime"));
+                listData.add(tempmap.get("testData"));
+            }
+            map.put("listTime",listTime);
+            map.put("listData",listData);
+            return map;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -193,6 +203,48 @@ public class FurnaceCurrentDataServiceImpl implements FurnaceCurrentDataService 
     public List<Map<String,Object>> selectCoal(){
         try {
             return furnaceCurrentDataMapper.selectCoal();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    @Override
+    public Map<String,Object> selectElectricCoalLoss() {
+        Map<String,Object> result =new HashMap<>();
+        try {
+            List<Map<String,Object>> list = furnaceCurrentDataMapper.selectElectricCoalLoss();
+            result.put("table",list);
+            List<Object> dataName=new ArrayList<>();
+            List<Object> dataValue=new ArrayList<>();
+            for(Map map:list){
+                dataName.add(map.get("dateName"));
+                dataValue.add(map.get("coalloss"));
+            }
+            result.put("dataName",dataName);
+            result.put("dataValue",dataValue);
+            return result;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    @Override
+    public Map<String, Object> selectElectricCoalLossCircle() {
+        Map<String,Object> result =new HashMap<>();
+        try {
+            List<Map<String,Object>> list1 = furnaceCurrentDataMapper.selectElectricCoalLoss();
+            List<Map<String,Object>> list2 = furnaceCurrentDataMapper.selectElectricCoalLossCircle();
+            result.put("table",list1);
+            result.put("circle",list2);
+            List<Object> dataName=new ArrayList<>();
+            List<Object> dataValue=new ArrayList<>();
+            for(Map map:list2){
+                dataName.add(map.get("name"));
+                dataValue.add(map.get("value"));
+            }
+            result.put("dataName",dataName);
+            result.put("dataValue",dataValue);
+            return result;
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

@@ -20,9 +20,39 @@
     </select>
 
     <select id="selectGasOxygen" resultType="map">
-		SELECT * from testvalue WHERE dateNum=18
+		SELECT DATE_FORMAT(a.time,'%H:%i') as perspecTime, a.testData
+        FROM
+            (
+            SELECT t.testData,
+                    DATE_FORMAT(
+                        concat( date( t.perspecTime ), ' ', HOUR ( t.perspecTime ), ':', floor( MINUTE ( t.perspecTime ) / 10 ) * 10 ),
+                        '%Y-%m-%d %H:%i'
+                    ) AS time
+                FROM testvalue t
+                WHERE dateNum=18
+                ) a
+        GROUP BY DATE_FORMAT( a.time, '%Y-%m-%d %H:%i' )
+        ORDER BY a.time
     </select>
     <select id="selectCoal" resultType="map">
 		SELECT t.dateNum,DATE_FORMAT(t.perspecTime,'%H:%i') as perspecTime,t.testData from testvalue t WHERE t.dateNum=24 order by t.id asc;
+    </select>
+    <select id="selectElectricCoalLoss" resultType="map">
+        SELECT a.dateNum,v.dateName,v.unit,a.perspecTime,a.testData,b.testData as goalvalue,c.testData as coalloss
+        from testvalue a
+        left join velectriccoalloss v on a.dateNum=v.dateNum
+        left join goalvalue b on a.dateNum=b.relateNum
+        left join coalloss c on a.dateNum=c.relateNum
+        where a.isOrther='1' and b.isOrther='1'
+        GROUP BY v.dateNum
+    </select>
+    <select id="selectElectricCoalLossCircle" resultType="map">
+        SELECT v.dateName as `name`,c.testData as `value`
+        from testvalue a
+        left join velectriccoalloss v on a.dateNum=v.dateNum
+        left join goalvalue b on a.dateNum=b.relateNum
+        left join coalloss c on a.dateNum=c.relateNum
+        where a.isOrther='1' and b.isOrther='1'
+        GROUP BY v.dateNum
     </select>
 </mapper>
