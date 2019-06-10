@@ -58,6 +58,9 @@ public class LoginController {
     public String getUsername(HttpServletRequest request) {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "";
+        }
         return user.getUsername();
     }
 
@@ -65,6 +68,7 @@ public class LoginController {
     @ResponseBody
     public String logOut(HttpServletRequest request) {
         HttpSession session = request.getSession();
+        session.invalidate();
         session.removeAttribute("user");
         return "";
     }

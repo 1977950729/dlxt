@@ -16,12 +16,12 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
         HttpSession session = request.getSession();
         //如果用户已登录也放行
         if (session.getAttribute("user") != null) {
-//        if (session.getAttribute("user") == null) {
             return true;
         }
         String path = request.getContextPath();
         //用户没有登录挑战到登录页面
-        request.getRequestDispatcher("/pages/login/login.html").forward(request, response);
+
+        response.sendRedirect(path + "/pages/login/login.html");
         return false;
     }
 }
